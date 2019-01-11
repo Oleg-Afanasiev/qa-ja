@@ -15,7 +15,9 @@ public class TestManager extends BaseUiManager {
     private AddressHelper addressHelper;
     private WomenHelper womenHelper;
 
+    // Конструктор
     public TestManager() {
+        // Вызов конструктора базового класса
         super(new Configuration()
             .withChromeDriverLocation(PropertyManager.from("common").getProperty("chrome.driver"))
             .withGeckoDriverLocation(PropertyManager.from("common").getProperty("gecko.driver"))
