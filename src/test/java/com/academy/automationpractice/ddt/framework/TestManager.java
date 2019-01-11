@@ -19,16 +19,20 @@ public class TestManager extends BaseUiManager {
     public TestManager() {
         // Вызов конструктора базового класса
         super(new Configuration()
-            .withChromeDriverLocation(PropertyManager.from("common").getProperty("chrome.driver"))
-            .withGeckoDriverLocation(PropertyManager.from("common").getProperty("gecko.driver"))
-            .withBaseUrl(PropertyManager.from("automation").getProperty("baseurl"))
-            .withImplicitlyWait(IMPLICITLY_WAIT)
-            .withLogin(PropertyManager.from("automation").getProperty("username"))
-            .withPassword(PropertyManager.from("automation").getProperty("password"))
-            .withScreenShotLocation(PropertyManager.from("automation").getProperty("screenshots"))
-            .withLogBrowser(PropertyManager.from("automation").getBoolean("log.browser"))
-            .withLogHttp(PropertyManager.from("automation").getBoolean("log.http"))
-            .withLogPerformance(PropertyManager.from("automation").getBoolean("log.performance")));
+                .withChromeDriverLocation(PropertyManager.from("common").getProperty("chrome.driver"))
+                .withGeckoDriverLocation(PropertyManager.from("common").getProperty("gecko.driver"))
+                .withBaseUrl(PropertyManager.from("automation").getProperty("baseurl"))
+                .withImplicitlyWait(IMPLICITLY_WAIT)
+                .withLogin(PropertyManager.from("automation").getProperty("username"))
+                .withPassword(PropertyManager.from("automation").getProperty("password"))
+                .withScreenShotLocation(PropertyManager.from("automation").getProperty("screenshots"))
+                .withLogBrowser(PropertyManager.from("automation").getBoolean("log.browser"))
+                .withLogHttp(PropertyManager.from("automation").getBoolean("log.http"))
+                .withLogPerformance(PropertyManager.from("automation").getBoolean("log.performance"))
+                .withCloseBrowser(PropertyManager.from("common").getBoolean("close.browser"))
+                .withReuseSession(PropertyManager.from("common").getBoolean("reuse.session"))
+        );
+
     }
 
     @Override
