@@ -3,7 +3,7 @@
     set fName=automation-1.0
     set fExt=.zip
     ::set rootDir=d:\programming\qa\seleniumtest\target
-    set rootDir=%HOMEDRIVE%%HOMEPATH%\.jenkins\workspace\ja-qa\target
+        set rootDir=%HOMEDRIVE%%HOMEPATH%\.jenkins\workspace\qa-ja\target
     set src=%rootDir%\%fName%%fExt%
 setlocal
     call :copyBackup
@@ -11,7 +11,7 @@ setlocal
 goto :EOF
 
 :copyBackup
-    set backupDir=%HOMEDRIVE%%HOMEPATH%\Documents\ja-qa\backup
+    set backupDir=%HOMEDRIVE%%HOMEPATH%\Documents\qa-ja\backup
     if not exist "%backupDir%" mkdir %backupDir%
     set fNameSuffix=
     call :assignTime fNameSuffix
@@ -39,7 +39,7 @@ goto :EOF
 
 :makeBuild
    echo build
-   set buildDir=%HOMEDRIVE%%HOMEPATH%\Documents\automation-final-04\build
+   set buildDir=%HOMEDRIVE%%HOMEPATH%\Documents\qa-ja\build
 
    :: delete previos build dir if exist
    if not exist "%buildDir%" mkdir %buildDir%
