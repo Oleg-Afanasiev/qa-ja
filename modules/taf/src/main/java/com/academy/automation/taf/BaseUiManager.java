@@ -19,6 +19,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
@@ -56,13 +57,12 @@ public abstract class BaseUiManager {
                     LoggingPreferences logPrefs = new LoggingPreferences();
                     logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
                     options.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
-//                    options.setCapability( "goog:loggingPrefs", logPrefs );
                 }
 
                 // proxy
                 if (cfg.isLogHttp()) {
                     proxy = new BrowserMobProxyServer();
-                    proxy.start(0);
+                    proxy.start(1001);
 
                     // get the Selenium proxy object
                     Proxy seleniumProxy = ClientUtil.createSeleniumProxy(proxy);
@@ -78,7 +78,6 @@ public abstract class BaseUiManager {
 
                 // start the browser up
                 driver = new EventFiringWebDriver(new ChromeDriver(options));
-
                 break;
 
             case "firefox":
@@ -130,12 +129,12 @@ public abstract class BaseUiManager {
 
             if (cfg.isLogBrowser()) {
                 LOG_BROWSER.debug("Navigated to {}", url);
-                driver.manage().logs().get("browser").forEach(LOG_BROWSER::debug);
+                driver.manage().logs().get(LogType.BROWSER).forEach(LOG_BROWSER::debug);
             }
 
             if (cfg.isLogPerformance()) {
                 LOG_PERFORMANCE.debug("Navigated to {}", url);
-                driver.manage().logs().get("performance").forEach(LOG_PERFORMANCE::debug);
+                driver.manage().logs().get(LogType.PERFORMANCE).forEach(LOG_PERFORMANCE::debug);
             }
         }
 

@@ -52,7 +52,7 @@ public class BasePage {
 
     protected boolean waitForJSandJQueryToLoad() {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver,30);
 
         // wait for jQuery to load
         Function<WebDriver, Boolean> jQueryLoad = driver -> {
@@ -73,7 +73,7 @@ public class BasePage {
     }
 
     public static void waitForPageLoadComplete(WebDriver driver, int specifiedTimeout) {
-        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(specifiedTimeout));
+        Wait<WebDriver> wait = new WebDriverWait(driver, specifiedTimeout);
         wait.until(driver1 -> String
                 .valueOf(((JavascriptExecutor) driver1).executeScript("return document.readyState"))
                 .equals("complete"));
