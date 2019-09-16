@@ -56,6 +56,7 @@ public abstract class BaseUiManager {
                     LoggingPreferences logPrefs = new LoggingPreferences();
                     logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
                     options.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
+//                    options.setCapability( "goog:loggingPrefs", logPrefs );
                 }
 
                 // proxy

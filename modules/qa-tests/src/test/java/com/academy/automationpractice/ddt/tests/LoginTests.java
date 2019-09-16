@@ -5,6 +5,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -24,6 +25,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test(dataProvider = "incorrectLoginProvider")
+    @Ignore
        public void testAuthIncorrect(String email, String password, String errorMsgExpected) {
         manager.goTo().home();
         manager.session().loginAs(email, password);

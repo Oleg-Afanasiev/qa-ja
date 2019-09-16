@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <!--Конфигурация для testNG фреймворка-->
-<suite name="Base Suit">
+<suite name="Base Suite">
     <test name="Login Tests">
         <parameter name="browser" value="chrome" />
         <classes>

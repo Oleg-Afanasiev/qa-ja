@@ -8,9 +8,16 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+//import org.openqa.selenium.support.PageFactory;
+//import org.openqa.selenium.support.ui.ExpectedCondition;
+//import org.openqa.selenium.support.ui.Select;
+//import org.openqa.selenium.support.ui.Wait;
+//import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 public class BasePage {
     protected WebDriver driver;
@@ -45,10 +52,10 @@ public class BasePage {
 
     protected boolean waitForJSandJQueryToLoad() {
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         // wait for jQuery to load
-        ExpectedCondition<Boolean> jQueryLoad = driver -> {
+        Function<WebDriver, Boolean> jQueryLoad = driver -> {
             try {
                 return ((Long)((JavascriptExecutor)driver).executeScript("return jQuery.active") == 0);
             }
@@ -59,14 +66,14 @@ public class BasePage {
         };
 
         // wait for Javascript to load
-        ExpectedCondition<Boolean> jsLoad = driver -> ((JavascriptExecutor)driver).executeScript("return document.readyState")
+        Function<WebDriver, Boolean> jsLoad = driver -> ((JavascriptExecutor)driver).executeScript("return document.readyState")
                 .toString().equals("complete");
 
         return wait.until(jQueryLoad) && wait.until(jsLoad);
     }
 
     public static void waitForPageLoadComplete(WebDriver driver, int specifiedTimeout) {
-        Wait<WebDriver> wait = new WebDriverWait(driver, specifiedTimeout);
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(specifiedTimeout));
         wait.until(driver1 -> String
                 .valueOf(((JavascriptExecutor) driver1).executeScript("return document.readyState"))
                 .equals("complete"));
