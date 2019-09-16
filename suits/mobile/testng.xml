@@ -6,7 +6,7 @@
     <test name="Delete Tests">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="com.academy.mobile.ddt.tests.full.SubscriberRestTest" />
+            <class name="com.com.academy.mobile.ddt.tests.full.SubscriberRestTest" />
         </classes>
     </test>
 </suite>

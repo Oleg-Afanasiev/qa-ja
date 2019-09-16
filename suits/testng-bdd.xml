@@ -4,9 +4,9 @@
 <!--Конфигурация для testNG фреймворка-->
 <suite name="BDD Suit">
     <test name="BDD-Login Tests">
-        <parameter name="browser" value="chrome" />
+        <parameter name="browser" value="firefox" />
         <classes>
-            <class name="com.academy.automationpractice.bdd.LoginTests" />
+            <class name="com.com.academy.automationpractice.bdd.LoginTests" />
         </classes>
     </test>
 </suite>

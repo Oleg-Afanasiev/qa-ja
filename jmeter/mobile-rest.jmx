@@ -578,7 +578,7 @@ log.info(&quot;after: &quot; + vars.get(&quot;after&quot;));</stringProp>
           <hashTree/>
           <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
             <stringProp name="BeanShellAssertion.query">import com.eclipsesource.json.*;
-import com.academy.model.*;
+import com.com.academy.model.*;
 import java.util.ArrayList;
 
 // Before List

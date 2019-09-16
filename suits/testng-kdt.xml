@@ -6,7 +6,7 @@
     <test name="KDT-Login Tests">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="com.academy.automationpractice.kdt.LoginTests" />
+            <class name="com.com.academy.automationpractice.kdt.LoginTests" />
         </classes>
     </test>
 </suite>
