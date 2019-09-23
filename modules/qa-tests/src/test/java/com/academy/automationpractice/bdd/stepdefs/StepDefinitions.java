@@ -1,28 +1,26 @@
 package com.academy.automationpractice.bdd.stepdefs;
 
-import com.academy.automationpractice.ddt.framework.TestManager;
 import com.academy.automationpractice.ddt.framework.page.AccountPage;
 import com.academy.automationpractice.ddt.framework.page.HomePage;
 import com.academy.automationpractice.ddt.framework.page.LoginPage;
 import com.academy.automationpractice.ddt.framework.page.WomenPage;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.core.api.Scenario;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 import java.io.IOException;
 
+import static com.academy.automationpractice.bdd.TestManagerContainer.manager;
+
 public class StepDefinitions {
 
-    private TestManager manager;
-
     @Before
-    public void setUp() throws IOException {
-        manager = new TestManager();
-        manager.init("chrome");
+    public void setUp(Scenario scenario) throws IOException {
     }
 
     @Given("^I am on home page$")
@@ -38,7 +36,6 @@ public class StepDefinitions {
 
     @When("^I fill login '(.*?)'$")
     public void fillLogin(String login) {
-        // Write code here that turns the phrase above into concrete actions
         new LoginPage(manager.getDriver())
                 .inputEmail(login);
     }
@@ -51,14 +48,12 @@ public class StepDefinitions {
 
     @And("^click signIn button$")
     public void i_click_on_the_button() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
         new LoginPage(manager.getDriver())
                 .clickSignIn(true);
     }
 
     @Then("^I should see '(.*?)' link$")
     public void i_should_see_the_button(String userName) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
         Assert.assertEquals(
                 new AccountPage(manager.getDriver()).getUserNameCapture(),
                 userName);
@@ -66,14 +61,12 @@ public class StepDefinitions {
 
     @Then("^I should make logout$")
     public void i_should_see_the_button() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
         new AccountPage(manager.getDriver())
                 .clickLogout();
     }
 
     @Given("^Я нахожусь на домашней странице$")
     public void goToHomePage2() {
-        System.out.println("***Я нахожусь на домашней странице***");
         manager.goTo().home();
     }
 
@@ -83,9 +76,8 @@ public class StepDefinitions {
                 .clickSignIn();
     }
 
-    @When("^Ввожу логин '(.*?)'$")
+    @When("Ввожу логин {string}")
     public void fillLogin2(String login) {
-        // Write code here that turns the phrase above into concrete actions
         new LoginPage(manager.getDriver())
                 .inputEmail(login);
     }
@@ -98,14 +90,12 @@ public class StepDefinitions {
 
     @And("^нажимаю отправить$")
     public void i_click_on_the_button2() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
         new LoginPage(manager.getDriver())
                 .clickSignIn(false);
     }
 
     @Then("^должен увидеть сообщение об ошибке '(.*?)'$")
     public void i_should_see_the_button2(String msg) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
         Assert.assertEquals(
                 new LoginPage(manager.getDriver()).getErrorMessage(),
                 msg);
@@ -133,7 +123,6 @@ public class StepDefinitions {
     }
 
     @After
-    public void tearDown(){
-        manager.stop();
+    public void tearDown(Scenario scenario){
     }
 }

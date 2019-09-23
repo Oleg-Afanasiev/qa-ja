@@ -37,7 +37,7 @@
         <hamcrest.version>1.3</hamcrest.version>
         <selenium.version>4.0.0-alpha-2</selenium.version>
         <browsermob.version>2.1.5</browsermob.version>
-        <cucumber.version>1.2.5</cucumber.version>
+        <cucumber.version>4.7.2</cucumber.version>
         <rest.assured.version>3.1.1</rest.assured.version>
         <apache.jmeter.version>4.0</apache.jmeter.version>
         <mysql.connector.version>8.0.12</mysql.connector.version>
@@ -111,6 +111,10 @@
                         <version>2.21.0</version>
                         <configuration>
                             <systemProperties>
+                                <property>
+                                    <name>log4j.configurationFile</name>
+                                    <value>${log4j.config}</value>
+                                </property>
                                 <property>
                                     <name>automation.cfg</name>
                                     <value>${automation.config}</value>

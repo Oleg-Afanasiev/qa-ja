@@ -6,7 +6,7 @@
     <test name="Auto Login Tests">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="com.com.academy.automationpractice.ddt.tests.AutoLoginTests" />
+            <class name="com.academy.automationpractice.ddt.tests.AutoLoginTests" />
         </classes>
     </test>
 </suite>

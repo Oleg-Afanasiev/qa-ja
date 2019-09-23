@@ -7,7 +7,7 @@ Feature: Login Profile
   Scenario: Successful login
     Given I am on home page
     Then I click on signIn link
-    When I fill login 'yavoric@rambler.ru'
+    When I fill login 'oleg.kh81@gmail.com'
     And I fill password '123qwerty'
     And click signIn button
     Then I should see 'OLEG AFANASIEV' link

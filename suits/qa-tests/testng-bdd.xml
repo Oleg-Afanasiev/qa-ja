@@ -6,7 +6,7 @@
     <test name="BDD-Login Tests">
         <parameter name="browser" value="firefox" />
         <classes>
-            <class name="com.com.academy.automationpractice.bdd.LoginTests" />
+            <class name="com.academy.automationpractice.bdd.LoginTests" />
         </classes>
     </test>
 </suite>
